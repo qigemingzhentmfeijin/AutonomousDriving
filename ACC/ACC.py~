@@ -87,7 +87,7 @@ def updateDistance(data):
 	currentTime = time.time()
 	dt = currentTime-preTime		#find time interval
 	
-	if(dt<0.1):
+	if(dt<0.5):
 		return 0
 		pass
 	
@@ -282,7 +282,6 @@ def ACC_cal():
 		#result = min(ca*g, max(-cd*g, (U["x"][0]/m)))
 		result = (U["x"][0]-Fr)/m
 		temp = [time.time()-initTime, x2, v0, D, result]
-		#time, currentV, frontV, Dis, force
 		with open ('/home/ubuntu/catkin_ws/src/ACC/accdata.csv', 'a') as f:
 			writer = csv.writer(f)
 			writer.writerow(temp)
